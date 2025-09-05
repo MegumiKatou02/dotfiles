@@ -1,0 +1,17 @@
+
+# Cache / plugins
+.lazy-lock.json
+*.swp
+*.swo
+*.swx
+*.bak
+*.tmp
+*.undo
+*.log
+
+# Folder plugin / data / cache
+data/
+backup/
+swap/
+Session.vim
+tags
