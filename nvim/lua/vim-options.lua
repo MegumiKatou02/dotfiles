@@ -11,6 +11,10 @@ vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#ead84e" })
 vim.api.nvim_set_option("clipboard", "unnamed")
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.o.hidden = true
+vim.o.splitright = true
+vim.o.winminwidth = 10
+vim.o.splitkeep = "screen"
 -- move selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
