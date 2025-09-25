@@ -19,6 +19,8 @@ return {
                 "html",
                 "typescript",
                 "tsx",
+                "css",
+                "vue",
             },
             sync_install = false,
             highlight = { enable = true },

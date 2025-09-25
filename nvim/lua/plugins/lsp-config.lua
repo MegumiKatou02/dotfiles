@@ -16,9 +16,15 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
+			local on_attach = function(client, bufnr)
+				if vim.bo[bufnr].filetype == "vue" and client.name == "ts_ls" then
+					client.server_capabilities.semanticTokensProvider = nil
+				end
+			end
+			-- local lspconfig = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- lua
-			lspconfig.lua_ls.setup({
+			vim.lsp.config["lua_ls"] = {
 				cmd = { "lua-language-server" },
 				capabilities = capabilities,
 				settings = {
@@ -35,19 +41,34 @@ return {
 						},
 					},
 				},
-			})
+			}
+			-- local mason_registry = require("mason-registry")
+			local vue_language_server = vim.fn.stdpath("data")
+				.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
 			-- typescript
-			lspconfig.ts_ls.setup({
+			vim.lsp.config["ts_ls"] = {
 				capabilities = capabilities,
-			})
+                on_attach = on_attach,
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = vue_language_server,
+							languages = { "vue" },
+						},
+					},
+				},
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+			}
 			-- Js
-			lspconfig.eslint.setup({
+			vim.lsp.config["eslint"] = {
 				capabilities = capabilities,
-			})
+			}
 			-- zig
-			lspconfig.zls.setup({
+			vim.lsp.config["zls"] = {
 				capabilities = capabilities,
-			})
+			}
 		end,
 	},
 }
