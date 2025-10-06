@@ -49,7 +49,7 @@ return {
 			-- typescript
 			vim.lsp.config["ts_ls"] = {
 				capabilities = capabilities,
-                on_attach = on_attach,
+				on_attach = on_attach,
 				init_options = {
 					plugins = {
 						{
