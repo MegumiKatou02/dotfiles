@@ -21,6 +21,7 @@ return {
                 "tsx",
                 "css",
                 "vue",
+                "rust"
             },
             sync_install = false,
             highlight = { enable = true },
