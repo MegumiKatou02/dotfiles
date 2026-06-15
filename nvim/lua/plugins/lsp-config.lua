@@ -9,7 +9,7 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
+				ensure_installed = { "lua_ls", "rust_analyzer"},
 			})
 		end,
 	},
@@ -69,6 +69,21 @@ return {
 			vim.lsp.config["zls"] = {
 				capabilities = capabilities,
 			}
+            -- rust 
+            vim.lsp.config["rust_analyzer"] = {
+                capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                        diagnostics = {
+                            enable = true,
+                        }
+                    }
+                }
+            }
+            vim.lsp.enable("jdtls", false)
 		end,
 	},
 }
