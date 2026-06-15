@@ -38,3 +38,4 @@ vim.notify = function(msg, ...)
 	return notify_original(msg, ...)
 end
 vim.opt.swapfile = false
+vim.opt.fixendofline = false
