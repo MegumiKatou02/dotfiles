@@ -1,6 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = 'master',
+    lazy = false,
     config = function()
         local configs = require("nvim-treesitter.configs")
 
@@ -21,11 +23,11 @@ return {
                 "tsx",
                 "css",
                 "vue",
-                "rust"
+                "rust",
             },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
         })
     end,
-}
+    }

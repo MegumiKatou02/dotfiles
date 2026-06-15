@@ -5,7 +5,7 @@ return {
 		priority = 1000,
 		lazy = false,
 		opts = {
-			flavour = "mocha",
+			flavour = "macchiato", -- latte, frappe, macchiato, mocha
 			transparent_background = false,
 			term_colors = true,
 			dim_inactive = {
